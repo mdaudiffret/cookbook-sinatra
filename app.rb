@@ -8,5 +8,14 @@ configure :development do
 end
 
 get '/' do
-  'Hello Maximin!'
+  require_relative 'cookbook'
+
+  csv_file   = File.join(__dir__, 'recipes.csv')
+  @cookbook   = Cookbook.new(csv_file)
+  @hello = "hello"
+  erb :index
+end
+
+get '/about' do
+  erb :about
 end

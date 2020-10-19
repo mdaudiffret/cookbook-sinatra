@@ -1,0 +1,12 @@
+<h1>Your recipies</h1>
+
+<% @cookbook.each_with_index do |recipe, index| %>
+<% status = recipe.done_status ? "[x]" : "[ ]" %>
+<li>
+  <%= "#{index + 1}. #{status} - #{recipe.name} - #{recipe.rating}/5 - #{recipe.prep_time}" %>
+</li>
+<% end %>
+
+
+<!-- pe => exec aec affichage
+er => exec sans affichage -->
