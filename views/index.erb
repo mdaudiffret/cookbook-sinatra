@@ -1,12 +1,13 @@
 <h1>Your recipies</h1>
+<ol>
+<%= message = ""
+  @cookbook.all.each do |recipe|
+    message += "<li>#{recipe.name} - #{recipe.rating}/5 - #{recipe.prep_time}</li>"
+  end
+  message %>
+</ol>
 
-<% @cookbook.each_with_index do |recipe, index| %>
-<% status = recipe.done_status ? "[x]" : "[ ]" %>
-<li>
-  <%= "#{index + 1}. #{status} - #{recipe.name} - #{recipe.rating}/5 - #{recipe.prep_time}" %>
-</li>
-<% end %>
-
+<a href="/new">Add a new Recipe</a>
 
 <!-- pe => exec aec affichage
 er => exec sans affichage -->
