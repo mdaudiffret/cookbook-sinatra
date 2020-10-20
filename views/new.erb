@@ -1,1 +1,13 @@
 <h1>Add a new Recipe</h1>
+<form method="get" action="/recipe">
+  <h2>Name</h2>
+    <input type="text" name="name" required>
+  <h2>Description</h2>
+    <input type="text" name="description" required>
+  <h2>Rating</h2>
+    <input type="number" name="rating" required min="0" max="5">
+  <h2>Preparation Time</h2>
+    <input type="text" name="prep_time" required>
+  <p></p>
+    <input type="submit" value="Add!">
+</form>

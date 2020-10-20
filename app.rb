@@ -18,3 +18,21 @@ end
 get '/new' do
   erb :new
 end
+
+get '/recipe?*' do
+  require_relative 'cookbook'
+
+  csv_file = File.join(__dir__, 'recipes.csv')
+  @cookbook = Cookbook.new(csv_file)
+  @cookbook.add_recipe(Recipe.new(params[:name], params[:description], params[:rating], params[:prep_time]))
+  erb :index
+end
+
+get '/scrap' do
+  erb :scrap
+end
+
+get '/ingredient?*' do
+  @url = "https://www.marmiton.org/recettes/recherche.aspx?aqt=#{params[:search]}"
+  erb :select
+end
